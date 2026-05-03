@@ -17,7 +17,6 @@ Internet → CloudFront Distribution → S3 Bucket (Static Website)
 ## 📁 Project Structure
 
 ```
-day14/
 ├── main.tf              # Main Terraform configuration
 ├── variables.tf         # Input variables
 ├── outputs.tf          # Output values
