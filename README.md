@@ -57,7 +57,6 @@ day14/
 
 ### 1. Initialize Terraform
 ```bash
-cd lessons/day14
 terraform init
 ```
 
@@ -75,7 +74,7 @@ Type `yes` when prompted to confirm deployment.
 ### 4. Access Your Website
 After deployment completes, Terraform will output the CloudFront URL:
 ```
-website_url = "https://d123xyz.cloudfront.net"
+website_url = "https://d2j7r64im3aei5.cloudfront.net.
 ```
 
 ## 📊 Resources Created
@@ -90,7 +89,7 @@ website_url = "https://d123xyz.cloudfront.net"
 ## 🔧 Configuration Details
 
 ### S3 Configuration:
-- **Bucket naming**: Auto-generated with prefix `my-static-website-`
+- **Bucket naming**: mdanielyan.com
 - **Website hosting**: Enabled with `index.html` as default
 - **Public access**: Configured for read-only public access
 - **Content types**: Proper MIME types for web files
@@ -129,11 +128,6 @@ After completing this project, you should understand:
 ## 🎉 Next Steps
 
 Consider extending this project with:
-- Custom domain name with Route 53
-- SSL certificate with AWS Certificate Manager
 - CI/CD pipeline for automatic deployments
 - Multiple environments (dev, staging, prod)
 - Advanced CloudFront configurations (custom error pages, security headers)
-
----
-**Note**: This project uses CloudFront's default domain. For production websites, consider using a custom domain with Route 53 and ACM for SSL certificates.
