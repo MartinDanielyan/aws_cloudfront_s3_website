@@ -76,15 +76,6 @@ After deployment completes, Terraform will output the CloudFront URL:
 website_url = "https://d2j7r64im3aei5.cloudfront.net.
 ```
 
-## 📊 Resources Created
-
-| Resource Type | Purpose | Count |
-|---------------|---------|-------|
-| S3 Bucket | Website hosting | 1 |
-| S3 Bucket Policy | Public read access | 1 |
-| S3 Objects | Website files (HTML, CSS, JS) | 3 |
-| CloudFront Distribution | Global CDN | 1 |
-
 ## 🔧 Configuration Details
 
 ### S3 Configuration:
