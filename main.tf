@@ -78,7 +78,7 @@ data "aws_acm_certificate" "mdanielyan" {
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  aliases = ["mdanielyan.com"]
+  aliases = ["mdanielyan.com", "www.mdanielyan.com"]
 
   origin {
     domain_name              = aws_s3_bucket.website.bucket_regional_domain_name
@@ -88,7 +88,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "Distribution comment for mdaniely domain"
+  comment             = "Distribution comment for mdanielyan domain"
   default_root_object = "index.html"
 
   default_cache_behavior {
@@ -132,9 +132,22 @@ data "aws_route53_zone" "main" {
   private_zone = false
 }
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "website" {
   zone_id = data.aws_route53_zone.main.zone_id
   name    = "mdanielyan.com"
+  type    = "A"
+  # ttl     = 300
+
+  alias {
+    name                   = aws_cloudfront_distribution.s3_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.s3_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "www" {
+  zone_id = data.aws_route53_zone.main.zone_id
+  name    = "www.mdanielyan.com"
   type    = "A"
   # ttl     = 300
 
